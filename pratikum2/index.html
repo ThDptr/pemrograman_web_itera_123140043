@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="./logo_THD.png" alt="Logo THD" class="logo">
+        </div>
+        <h1>Teng HD Dashboard</h1>
+    </header>
+
+    <main>
+        <!-- Widget Waktu Asinkron -->
+        <section id="time-widget" class="time-widget">
+            <p>Memuat waktu dan salam...</p>
+        </section>
+
+        <!-- Form Input Tugas -->
+        <section class="task-form-section">
+            <form id="task-form">
+                <input 
+                    type="text" 
+                    id="task-input" 
+                    placeholder="Tulis tugas baru..." 
+                    required
+                    autocomplete="off"
+                >
+                <button type="submit" class="add-btn">Tambah Tugas</button>
+            </form>
+        </section>
+
+        <!-- Daftar Tugas -->
+        <section class="tasks-section">
+            <h2>Daftar Tugas Saya</h2>
+            <div id="task-list-container" class="task-list">
+                <!-- Tugas akan dirender di sini -->
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
