@@ -2,14 +2,23 @@
 from alembic import context
 from pyramid.paster import get_appsettings, setup_logging
 from sqlalchemy import engine_from_config
+import os
 
 from pyramid_mahasiswa.models.meta import Base
 
 config = context.config
 
-setup_logging(config.config_file_name)
+# Get the .ini file path
+ini_file = config.config_file_name
+if ini_file and os.path.exists(ini_file):
+    setup_logging(ini_file)
+    settings = get_appsettings(ini_file)
+else:
+    # Fallback to development.ini if alembic.ini is used
+    dev_ini = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'development.ini')
+    setup_logging(dev_ini)
+    settings = get_appsettings(dev_ini)
 
-settings = get_appsettings(config.config_file_name)
 target_metadata = Base.metadata
 
 

@@ -14,6 +14,30 @@ def setup_models(dbsession):
     """
     model = models.mymodel.MyModel(name='one', value=1)
     dbsession.add(model)
+    
+    # Tambahkan data awal matakuliah
+    matakuliah1 = models.matakuliah.Matakuliah(
+        kode_mk='IF101',
+        nama_mk='Algoritma dan Pemrograman',
+        sks=3,
+        semester=1
+    )
+    matakuliah2 = models.matakuliah.Matakuliah(
+        kode_mk='IF102',
+        nama_mk='Struktur Data',
+        sks=3,
+        semester=2
+    )
+    matakuliah3 = models.matakuliah.Matakuliah(
+        kode_mk='IF201',
+        nama_mk='Basis Data',
+        sks=4,
+        semester=3
+    )
+    
+    dbsession.add(matakuliah1)
+    dbsession.add(matakuliah2)
+    dbsession.add(matakuliah3)
 
 
 def parse_args(argv):
